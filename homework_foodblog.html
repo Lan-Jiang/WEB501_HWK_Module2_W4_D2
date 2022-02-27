@@ -88,6 +88,23 @@
             align-items:center;
             justify-content: center;
         }
+        button:hover {
+            cursor: pointer;
+        }
+        .invisible {
+            visibility: hidden;
+        }
+        .post {
+            z-index: 1;
+        }
+        .post-bio {
+            z-index: 2;
+            background-color: darkgoldenrod;
+            width: 200px;
+            margin-top: 2em;
+            padding-left: 300px;
+        }
+
     </style>
 
     
@@ -113,16 +130,48 @@
         <main_h2></main_h2>
     </div>
     
-    <section id="blogposts">
+  <section id="blogposts">
 
+    <!-- <div class="post">
+        <div id="post1">
+            <button v-on:click="isHidden = !isHidden" style="border:none;background-color:rgba(255, 255, 255, 0.85);">
+                <img v-bind:href="hreflink_brianna" target="_blank">
+            </button>
+            <span>{{ author }}</span> — 
+            <span>{{ date }}</span>
+            <span>{{ reply }}</span>
+            <p>{{ p }}</p>
+            <div class="post-bio" v-if="isHidden">
+                <p>{{ Bio }}</p>
+            </div>
+        </div>
+    </div> -->
     <div class="post">
         <div id="post1">
-            <span>{{ obj1.author }}</span> — 
-            <span>{{ obj1.date }}</span>
-            <span>{{ obj1.reply }}</span>
-            <p>{{ obj1.p }}</p>
+            <button v-on:click="isHidden = !isHidden" style="border:none;background-color:rgba(255, 255, 255, 0.85);">
+                <img v-bind:href="hreflink_brianna" target="_blank">
+            </button>
+            <span>{{ author }}</span> — 
+            <span>{{ date }}</span>
+            <span>{{ reply }}</span>
+            <p>{{ p }}</p>
+            <div class="post-bio" v-if="isHidden">
+                <p>{{ Bio }}</p>
+                <button 
+                   type="button" 
+                   class="btn btn-secondary goto-home-err" 
+                   v-on:click="hidediv"
+                 ><b>x</b></button>
+            </div>
         </div>
     </div>
+
+    <!-- <div id="app">
+        <button v-on:click="isHidden = true">Hide the text below</button>
+        <button v-on:click="isHidden = !isHidden">Toggle hide and show</button>
+        
+        <h1 v-if="!isHidden">Hide me on click event!</h1>
+    </div> -->
 
     <div class="post">
         <div class="post-title">
@@ -188,13 +237,19 @@
     var app = new Vue({
         el: '#post1',
         data: {
-            obj1: {
-                author: 'Brianna',
-                date: 'February 18, 2021 @ 3:30 pm',
-                reply: 'REPLY',
-                p: 'Was amazing! My Walmart didn’t have coriander in stock and didn’t have ground cumin. I used serrano instead of jalapeño. It was just like my favorite tortilla soup from BJs. I am sending this recipe to my family. I want everyone to try it!'
+            author: 'Brianna',
+            date: 'February 18, 2021 @ 3:30 pm',
+            reply: 'REPLY',
+            p: 'Was amazing! My Walmart didn’t have coriander in stock and didn’t have ground cumin. I used serrano instead of jalapeño. It was just like my favorite tortilla soup from BJs. I am sending this recipe to my family. I want everyone to try it!',
+            hreflink_brianna: "profile.png",
+            Bio: 'Food enthusiast. Love to cook and experiment. Into only organic, fat free, sugar free stuffs!',
+            isHidden: false
+        },
+        methods: {
+            hidediv: function() {
+                this.isHidden = !this.isHidden;
             }
-        }
+        },
     });
 
 
