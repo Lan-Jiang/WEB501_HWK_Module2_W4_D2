@@ -82,6 +82,7 @@
         main .post-title {
             display: flex;
             align-items: center;
+            
         }
         button {
             width: 100px;
@@ -165,13 +166,13 @@
     <div class="post">
         <div id="post1">
             <div class="post-title">
-                <button v-on:click="isHidden = !isHidden" style="border:none;background-color:rgba(255, 255, 255, 0.85);">
+                <button v-on:click="isHidden = !isHidden" style="border:none;background-color:transparent;">
                     <img v-bind:src="hreflink_brianna" target = "_blank">
                 </button>
                 <!-- <div class="post-title-p"> -->
                 <p>    </p>
                 <span>{{ author }}</span> — 
-                <span>{{ date }}</span>
+                <span>{{ date }}</span>&nbsp;
                 <span>{{ reply }}</span>
                 <!-- </div> -->
                 <div class="post-bio" v-if="isHidden">
@@ -200,34 +201,94 @@
     </div> -->
 
     <div class="post">
-        <div class="post-title">
-            <img scr="profile.png">
-            <span class="author">LINH</span> — 
-            <span class="date">February 15, 2021 @ 9:46 am</span>
-            <span class="reply">REPLY</span>
+        <div id="post2">
+            <div class="post-title">
+                <button v-on:click="isHidden = !isHidden" style="border:none;background-color:transparent;">
+                    <img v-bind:src="hreflink_linh" target = "_blank">
+                </button>
+                <!-- <div class="post-title-p"> -->
+                <p>    </p>
+                <span>{{ author }}</span> — 
+                <span>{{ date }}</span>&nbsp;
+                <span>{{ reply }}</span>
+                <!-- </div> -->
+                <div class="post-bio" v-if="isHidden">
+                    <h3>{{ Bioauthor }}</h3>
+                    <br>
+                    <h4>Foodie Level: </h4><p>{{ Foodielevel }}</p>
+                    <br>
+                    <h4>Bio: </h4><p>{{ Bio }}</p> 
+                    <button 
+                        type="button" 
+                        class="btn btn-primary" 
+                        v-on:click="hidediv"
+                        style="width:60px;height:30px;"
+                    ><b>Close</b></button>
+                </div>
+            </div>
+            <p>{{ p }}</p>           
         </div>
-        <p>
-        I just made this soup today and it’s so tasty! didn’t have corn at home but still turned out very good.  It’s a winner!  I made beef chili for my parents; but since my dad has gout he can’t eat beef; this white chicken chili is perfect for him.  Thank you Lisa!
-        </p>
     </div>
 
     <div class="post">
-        <span class="author">CATHERINE LEONARDO</span> — 
-        <span class="date">February 13, 2021 @ 12:58 pm</span>
-        <span class="reply">REPLY</span>
-        <p>
-        I LOVE this White Chicken Chili! You are right, it is satiating meal—delicious with toasted bread. Refreshingly different taste than any chicken chili I’ve made in the past. I made it exactly as written and added some chopped zucchini, carrots, and celery. Instead of shredding the chicken, I chopped it into small pieces. It freezes very well. Will be an all-time favorite, for sure.
-        </p>
+        <div id="post3">
+            <div class="post-title">
+                <button v-on:click="isHidden = !isHidden" style="border:none;background-color:transparent;">
+                    <img v-bind:src="hreflink_cath" target = "_blank">
+                </button>
+                <!-- <div class="post-title-p"> -->
+                <p>    </p>
+                <span>{{ author }}</span> — 
+                <span>{{ date }}</span>&nbsp;
+                <span>{{ reply }}</span>
+                <!-- </div> -->
+                <div class="post-bio" v-if="isHidden">
+                    <h3>{{ Bioauthor }}</h3>
+                    <br>
+                    <h4>Foodie Level: </h4><p>{{ Foodielevel }}</p>
+                    <br>
+                    <h4>Bio: </h4><p>{{ Bio }}</p> 
+                    <button 
+                        type="button" 
+                        class="btn btn-primary" 
+                        v-on:click="hidediv"
+                        style="width:60px;height:30px;"
+                    ><b>Close</b></button>
+                </div>
+            </div>
+            <p>{{ p }}</p>           
+        </div>
     </div>
 
     <div class="post">
-        <span class="author">KALI</span> — 
-        <span class="date">February 13, 2021 @ 11:31 am</span>
-        <span class="reply">REPLY</span>
-        <p>
-        This recipe is dynamite! My partner usually won’t eat beans but he finished the whole pot (darn was hoping to have some for leftovers haha). This is crowd-pleaser that I am going to add to my regular recipe rotation. Thanks so much, Lisa!
-        </p>
-    </div>  
+        <div id="post4">
+            <div class="post-title">
+                <button v-on:click="isHidden = !isHidden" style="border:none;background-color:transparent;">
+                    <img v-bind:src="hreflink_kali" target = "_blank">
+                </button>
+                <!-- <div class="post-title-p"> -->
+                <p>    </p>
+                <span>{{ author }}</span> — 
+                <span>{{ date }}</span>&nbsp;
+                <span>{{ reply }}</span>
+                <!-- </div> -->
+                <div class="post-bio" v-if="isHidden">
+                    <h3>{{ Bioauthor }}</h3>
+                    <br>
+                    <h4>Foodie Level: </h4><p>{{ Foodielevel }}</p>
+                    <br>
+                    <h4>Bio: </h4><p>{{ Bio }}</p> 
+                    <button 
+                        type="button" 
+                        class="btn btn-primary" 
+                        v-on:click="hidediv"
+                        style="width:60px;height:30px;"
+                    ><b>Close</b></button>
+                </div>
+            </div>
+            <p>{{ p }}</p>           
+        </div>
+    </div>
 
     </section>
     </main>
@@ -264,7 +325,7 @@
         el: '#post1',
         data: {
             author: 'Brianna',
-            date: 'February 18, 2021 @ 3:30 pm',
+            date: 'February 13, 2021 @ 12:58 pm ',
             reply: 'REPLY',
             p: 'Was amazing! My Walmart didn’t have coriander in stock and didn’t have ground cumin. I used serrano instead of jalapeño. It was just like my favorite tortilla soup from BJs. I am sending this recipe to my family. I want everyone to try it!',
             hreflink_brianna: 'profile.png',
@@ -280,6 +341,65 @@
         },
     });
 
+    var app = new Vue({
+        el: '#post2',
+        data: {
+            author: 'LINH',
+            date: 'February 15, 2021 @ 9:46 am ',
+            reply: 'REPLY',
+            p: 'I just made this soup today and it’s so tasty! didn’t have corn at home but still turned out very good.  It’s a winner!  I made beef chili for my parents; but since my dad has gout he can’t eat beef; this white chicken chili is perfect for him.  Thank you Lisa!',
+            hreflink_linh: 'profile.png',
+            Bioauthor: 'LINH',
+            Foodielevel: 'Newcomer',
+            Bio: 'Love food! Grew up with meat and potatoes. Recently venture outside my comfort zone. Loving everything I have been eating so far. Thai is my favorite at this time.',
+            isHidden: false
+        },
+        methods: {
+            hidediv: function() {
+                this.isHidden = !this.isHidden;
+            }
+        },
+    });
+
+    var app = new Vue({
+        el: '#post3',
+        data: {
+            author: 'CATHERINE LEONARDO',
+            date: 'February 13, 2021 @ 12:58 pm ',
+            reply: 'REPLY',
+            p: 'I LOVE this White Chicken Chili! You are right, it is satiating meal—delicious with toasted bread. Refreshingly different taste than any chicken chili I’ve made in the past. I made it exactly as written and added some chopped zucchini, carrots, and celery. Instead of shredding the chicken, I chopped it into small pieces. It freezes very well. Will be an all-time favorite, for sure.',
+            hreflink_cath: 'profile.png',
+            Bioauthor: 'CATHERINE LEONARDO',
+            Foodielevel: 'Mentor',
+            Bio: 'I have to say I never was the adventurous type until 2 years ago. My boyfriend, who is of Japanese background, exposed me to other cultural food and I have never look back since!',
+            isHidden: false
+        },
+        methods: {
+            hidediv: function() {
+                this.isHidden = !this.isHidden;
+            }
+        },
+    });
+
+    var app = new Vue({
+        el: '#post4',
+        data: {
+            author: 'KALI',
+            date: 'February 13, 2021 @ 11:31 am ',
+            reply: 'REPLY',
+            p: 'This recipe is dynamite! My partner usually won’t eat beans but he finished the whole pot (darn was hoping to have some for leftovers haha). This is crowd-pleaser that I am going to add to my regular recipe rotation. Thanks so much, Lisa!',
+            hreflink_kali: 'profile.png',
+            Bioauthor: 'KALI',
+            Foodielevel: 'Novice',
+            Bio: 'Food is my passion. So is cooking. I love to experiment and try new things. I have to admit I’m a food whore! Invite me over for dinner and I’ll be there!',
+            isHidden: false
+        },
+        methods: {
+            hidediv: function() {
+                this.isHidden = !this.isHidden;
+            }
+        },
+    });
 
 </script>
 
