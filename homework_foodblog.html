@@ -14,13 +14,13 @@
         #leftside {
             float:left;
             width: 30%;
-            min-height: 1200px;
+            min-height: 1500px;
             background-color:rgb(77, 192, 154);
         }
         #rightside {
             float:left;
             width: 70%;
-            min-height: 1200px;
+            min-height: 1500px;
             background-color:rgb(238, 226, 192);
             position:relative;
         }
@@ -30,7 +30,7 @@
             top: 15%;
             left: 15%;
             min-width: 1100px;
-            min-height: 1050px;
+            min-height: 1250px;
             border-radius: 0.7em;
         }
         header {
@@ -79,30 +79,46 @@
             font-size: 0.85em;
         }
 
-        main img {
-            width:60px;
-            height:60px;
-        }
-        main .post post-title {
+        main .post-title {
             display: flex;
-            align-items:center;
-            justify-content: center;
+            align-items: center;
+        }
+        button {
+            width: 100px;
+            height: 60px;
+            padding-left: 0px;
+        }
+        button img {
+            width: 70px;
+            height: 60px;
+            float: left;
         }
         button:hover {
             cursor: pointer;
         }
-        .invisible {
-            visibility: hidden;
+        main .post-bio {
+            background-color: rgba(56, 56, 56, 0.95);
+            width: 400px;
+            position: absolute;
+            top:300px;
+            left:250px;
+            display: block;
+            border-radius: 15px;
         }
-        .post {
-            z-index: 1;
+        main .post-bio h3 {
+            color: white;
+            padding: 10px 20px 0px 20px;
         }
-        .post-bio {
-            z-index: 2;
-            background-color: darkgoldenrod;
-            width: 200px;
-            margin-top: 2em;
-            padding-left: 300px;
+        main .post-bio h4 {
+            color: white;
+            padding: 0px 20px 0px 20px;
+        }
+        main .post-bio p {
+            color: white;
+            padding: 0px 20px 0px 20px;
+        }
+        main .post-bio button {
+            margin:10px 0px 20px 20px;
         }
 
     </style>
@@ -120,10 +136,10 @@
         <component_header></component_header>
     </header>
 
-    <main>
+<main>
     
     <aside id="photos">
-        <img src="images/chili.jpg" alt="White Chicken Chili" width="180">
+        <img src="images/chili.jpg" alt="White Chicken Chili" width="180px">
     </aside>
 
     <div id="component2">
@@ -148,21 +164,31 @@
     </div> -->
     <div class="post">
         <div id="post1">
-            <button v-on:click="isHidden = !isHidden" style="border:none;background-color:rgba(255, 255, 255, 0.85);">
-                <img v-bind:href="hreflink_brianna" target="_blank">
-            </button>
-            <span>{{ author }}</span> — 
-            <span>{{ date }}</span>
-            <span>{{ reply }}</span>
-            <p>{{ p }}</p>
-            <div class="post-bio" v-if="isHidden">
-                <p>{{ Bio }}</p>
-                <button 
-                   type="button" 
-                   class="btn btn-secondary goto-home-err" 
-                   v-on:click="hidediv"
-                 ><b>x</b></button>
+            <div class="post-title">
+                <button v-on:click="isHidden = !isHidden" style="border:none;background-color:rgba(255, 255, 255, 0.85);">
+                    <img v-bind:src="hreflink_brianna" target = "_blank">
+                </button>
+                <!-- <div class="post-title-p"> -->
+                <p>    </p>
+                <span>{{ author }}</span> — 
+                <span>{{ date }}</span>
+                <span>{{ reply }}</span>
+                <!-- </div> -->
+                <div class="post-bio" v-if="isHidden">
+                    <h3>{{ Bioauthor }}</h3>
+                    <br>
+                    <h4>Foodie Level: </h4><p>{{ Foodielevel }}</p>
+                    <br>
+                    <h4>Bio: </h4><p>{{ Bio }}</p> 
+                    <button 
+                        type="button" 
+                        class="btn btn-primary" 
+                        v-on:click="hidediv"
+                        style="width:60px;height:30px;"
+                    ><b>Close</b></button>
+                </div>
             </div>
+            <p>{{ p }}</p>           
         </div>
     </div>
 
@@ -241,7 +267,9 @@
             date: 'February 18, 2021 @ 3:30 pm',
             reply: 'REPLY',
             p: 'Was amazing! My Walmart didn’t have coriander in stock and didn’t have ground cumin. I used serrano instead of jalapeño. It was just like my favorite tortilla soup from BJs. I am sending this recipe to my family. I want everyone to try it!',
-            hreflink_brianna: "profile.png",
+            hreflink_brianna: 'profile.png',
+            Bioauthor: 'Brianna',
+            Foodielevel: 'Novice',
             Bio: 'Food enthusiast. Love to cook and experiment. Into only organic, fat free, sugar free stuffs!',
             isHidden: false
         },
